@@ -1,24 +1,38 @@
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { getStandings } from "./lib/graphql";
+import LeagueLogo from "./components/LeagueLogo";
+import Results from "./components/Results";
+import LeagueTable from "./components/LeagueTable";
 
-export default function Home() {
+export default async function Home() {
+  const standingsData = await getStandings();
+  const standings = standingsData.standings;
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        {standings.map((league) => (
+          <div>
+            {/* <LeagueLogo
+              key={`${league.slug}-logo`}
+              slug={league.slug}
+              altText={`${league.name} logo`}
+              src={league.logo}
+            /> */}
+            <Results
+              resultsData={league.results}
+              slug={league.slug}
+              key={`${league.slug}-results`}
+            />
+            <LeagueTable key={`${league.slug}-standings`} leagueData={league} />
+          </div>
+        ))}
 
         <div className={styles.ctas}>
           <a
