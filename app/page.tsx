@@ -6,9 +6,9 @@ import "@fontsource/roboto/700.css";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { getStandings } from "./lib/graphql";
-import LeagueLogo from "./components/LeagueLogo";
-import Results from "./components/Results";
-import LeagueTable from "./components/LeagueTable";
+
+import LeagueCard from "./components/LeagueCard";
+import { Box } from "@mui/material";
 
 export default async function Home() {
   const standingsData = await getStandings();
@@ -16,24 +16,29 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        {standings.map((league) => (
-          <div>
-            {/* <LeagueLogo
-              key={`${league.slug}-logo`}
-              slug={league.slug}
-              altText={`${league.name} logo`}
-              src={league.logo}
-            /> */}
-            <Results
-              resultsData={league.results}
-              slug={league.slug}
-              key={`${league.slug}-results`}
-            />
-            <LeagueTable key={`${league.slug}-standings`} leagueData={league} />
-          </div>
-        ))}
-
+      <main
+        style={{
+          width: "100%",
+          height: "100%",
+          maxWidth: "1800px",
+          margin: "0 auto",
+        }}
+      >
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2,
+            // todo fix responsiveness
+            gridTemplateColumns: {
+              sm: "repeat(2, minmax(400px, 1fr))",
+              md: "repeat(3, minmax(400px, 1fr))",
+            },
+          }}
+        >
+          {standings.map((league) => (
+            <LeagueCard league={league} key={league.slug} />
+          ))}
+        </Box>
         <div className={styles.ctas}>
           <a
             className={styles.primary}
@@ -60,50 +65,6 @@ export default async function Home() {
           </a>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
