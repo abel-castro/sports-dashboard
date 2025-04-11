@@ -33,7 +33,7 @@ export function calculateColor({
     (awayWin && currentTeam === "away")
   ) {
     if (winnerBold) {
-      return { ...winnerColor, fontWeight: "bold" };
+      return { ...winnerColor };
     } else {
       return winnerColor;
     }
