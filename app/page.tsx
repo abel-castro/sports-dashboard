@@ -35,8 +35,11 @@ export default async function Home() {
             },
           }}
         >
-          {standings.map((league) => (
-            <LeagueCard league={league} key={league.slug} />
+          {standings.map((league, index) => (
+            <LeagueCard
+              league={league}
+              key={`league-card-${league.slug}-${index}`}
+            />
           ))}
         </Box>
         <div className={styles.ctas}>
