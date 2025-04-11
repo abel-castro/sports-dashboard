@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
 import { LeageTableData } from "../lib/types";
-import Image from "next/image";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";

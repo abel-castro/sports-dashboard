@@ -1,6 +1,6 @@
 "use client";
 
-import { LeageTableData, ResultsData } from "../lib/types";
+import { LeageTableData } from "../lib/types";
 
 import {
   Avatar,
@@ -13,10 +13,8 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import { calculateColor } from "./calculateColor";
-import MatchScore from "./MatchScore";
 import LeagueTable from "./LeagueTable";
-import { use, useState } from "react";
+import { useState } from "react";
 import Results from "./Results";
 
 interface LeagueCardProps {

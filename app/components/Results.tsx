@@ -19,10 +19,10 @@ export default function Results({ resultsData, slug }: ResultsProps) {
         textAlign: "center",
       }}
     >
-      {resultsData.map((result, index) => (
+      {resultsData.map((result) => (
         <Box
           sx={{ display: "table-row" }}
-          key={`${slug}-${result.homeTeam}-${result.awayTeam}-${index}-main-box`}
+          key={`${slug}-${result.homeTeam}-${result.awayTeam}`}
         >
           <Box sx={{ display: "table-cell", width: "40%", textAlign: "right" }}>
             <Typography
