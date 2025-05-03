@@ -1,3 +1,14 @@
+# Sports Dashboard
+
+Show an overview of the football results and standings of the most important European leagues.
+
+Build with
+ - nextjs
+ - MUI
+ - [graphql-request](https://www.npmjs.com/package/graphql-request)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
