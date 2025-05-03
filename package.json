@@ -11,10 +11,13 @@
     "test:coverage": "vitest --coverage --reporter=verbose"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.2.5",
     "@mui/material": "^6.4.8",
+    "@mui/material-nextjs": "^7.0.2",
     "graphql": "^16.10.0",
     "graphql-request": "^7.1.2",
     "next": "15.2.3",

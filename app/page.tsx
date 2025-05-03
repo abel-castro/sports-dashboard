@@ -24,6 +24,13 @@ export default async function Home() {
           margin: "0 auto",
         }}
       >
+        <div style={{ textAlign: "center", paddingBottom: "40px" }}>
+          <h1>Football Dahsboard</h1>
+          <p>
+            Football results and standings of the most important European
+            leagues{" "}
+          </p>
+        </div>
         <Box
           sx={{
             display: "grid",
@@ -42,30 +49,20 @@ export default async function Home() {
             />
           ))}
         </Box>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <div
+          style={{ textAlign: "center", marginTop: "20px", padding: "20px" }}
+        >
+          <p>
+            Abel Castro 2025 - checkout the source code of this page on{" "}
+            <a
+              href="https://github.com/abel-castro/sports-dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontWeight: "bold" }}
+            >
+              GitHub
+            </a>
+          </p>
         </div>
       </main>
     </div>
