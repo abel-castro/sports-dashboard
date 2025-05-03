@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request";
-import { ResultsData, StandingsData } from "./types";
+import { StandingsData } from "./types";
 
 const GRAPHQL_URL = "https://core.abelcastro.dev/graphql/";
 
