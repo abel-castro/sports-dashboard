@@ -9,6 +9,9 @@ import { getStandings } from "./lib/graphql";
 import LeagueCard from "./components/LeagueCard";
 import { Box } from "@mui/material";
 
+// ← re‐generate this page at most once every 86400 seconds (24 h)
+export const revalidate = 86400;
+
 export default async function Home() {
   const standingsData = await getStandings();
   const standings = standingsData.standings;
