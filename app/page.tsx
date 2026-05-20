@@ -4,7 +4,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import styles from "./page.module.css";
-import { getStandings } from "./lib/graphql";
+import { getStandings } from "./lib/standings";
 
 import LeagueCard from "./components/LeagueCard";
 import { Box } from "@mui/material";
@@ -55,7 +55,7 @@ export default async function Home() {
           style={{ textAlign: "center", marginTop: "20px", padding: "20px" }}
         >
           <p>
-            Abel Castro 2025 - checkout the source code of this page on{" "}
+            Abel Castro {new Date().getFullYear()} - checkout the source code of this page on{" "}
             <a
               href="https://github.com/abel-castro/sports-dashboard"
               target="_blank"
