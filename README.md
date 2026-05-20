@@ -7,6 +7,28 @@ Build with
  - MUI
  - [graphql-request](https://www.npmjs.com/package/graphql-request)
 
+## Data providers
+
+Standings data is fetched through a `StandingsProvider` interface
+(`app/lib/standings-provider.ts`), so the dashboard is not tied to a single
+transport. Two implementations are available:
+
+- `RestStandingsProvider` (`app/lib/rest-standings-provider.ts`): calls the REST
+  endpoint `GET /api/sports/standings/`. This is the default. Base URL is read
+  from `SPORTS_API_URL` (defaults to `https://sports-api.fastapicloud.dev`).
+- `GraphQLStandingsProvider` (`app/lib/graphql-standings-provider.ts`): calls the
+  GraphQL endpoint. URL is read from `SPORTS_API_GRAPHQL_URL` (defaults to
+  `https://sports-api.fastapicloud.dev/graphql/`).
+
+The active provider is wired in `app/lib/standings.ts`. To switch transports,
+change that single file:
+
+```ts
+import { GraphQLStandingsProvider } from "./graphql-standings-provider";
+
+const provider = new GraphQLStandingsProvider();
+```
+
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
